@@ -1,10 +1,7 @@
 // Assignment Code
-if (confirm("Press a button!")) {
-  txt = "You pressed OK!";
-} else {
-  txt = "You pressed Cancel!";
-}
 var generateBtn = document.querySelector("#generate");
+
+var generateBtn = window.prompt("Select your password criteria")
 
 // Write password to the #password input
 function writePassword() {
