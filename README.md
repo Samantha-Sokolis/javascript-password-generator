@@ -5,9 +5,10 @@ An application that an employee can use to generate a random password based on s
 
 ## Notes
 1. User will click on red "generate password" button
-2. 1st prompt will pask for user input - charcacter length
+2. 1st prompt will ask for user to confirm password criteria
+3. 2nd prompt will ask for user input - charcacter length
 3. If character length is incorrect, error message will show
-4. 2nd, 3rd and 4th prompts are to confirm character criteria
+4. 2nd, 3rd and 4th prompts are to confirm character criteria with an ok
 5. If all criteria have been confirmed, password will generate
 
 
