@@ -2,6 +2,7 @@
 
 ## Description
 An application that an employee can use to generate a random password based on selection criteria
+URL: https://samantha-sokolis.github.io/javascript-password-generator/
 
 ## Notes
 1. User will click on red "generate password" button
