@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <!--3rd party link: materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <link rel="stylesheet" href="assets/css/style.css"/>
   </head>
   <body>
     <div class="wrapper">
@@ -16,6 +19,40 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+        <!--Materialize slider added for password length selection - adjusted to required range: 8 -128 -->
+        <form action="#">
+          <p class="range-field">
+            <input type="range" id="test5" min="8" max="128" />
+          </p>
+        </form>
+              
+        <!--Materialize Checkbox added-->
+        <form action="#">
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" id="numbers" />
+              <span>Use numbers</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" id="lowerCase" />
+              <span>Use lowercase</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" id="upperCase"  />
+              <span>USE UPPERCASE</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" class="filled-in" checked="checked" id="specChar" />
+              <span>Use special characters ? ! $ & *</span>
+            </label>
+          </p>
+        </form>
         <div class="card-body">
           <textarea
             readonly
@@ -29,6 +66,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
