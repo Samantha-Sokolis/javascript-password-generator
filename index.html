@@ -13,19 +13,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Password Generator</h1>
+        <h2>Password Generator</h2>
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h4>Select your password criteria</h4>
         </div>
-        <!--Materialize slider added for password length selection - adjusted to required range: 8 -128 -->
-        <form action="#">
-          <p class="range-field">
-            <input type="range" id="test5" min="8" max="128" />
-          </p>
-        </form>
-              
+        <h6>Uncheck boxes below if a criteria is NOT required</h6>
         <!--Materialize Checkbox added-->
         <form action="#">
           <p>
@@ -48,7 +42,7 @@
           </p>
           <p>
             <label>
-              <input type="checkbox" class="filled-in" checked="checked" id="specChar" />
+              <input type="checkbox" class="filled-in" checked="checked" id="specialChar" />
               <span>Use special characters ? ! $ & *</span>
             </label>
           </p>
