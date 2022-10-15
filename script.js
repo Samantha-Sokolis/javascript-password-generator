@@ -18,6 +18,11 @@
   const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const specialChar = "`~!@#$%^&*()_-+={[}]|\:;'<,>.?/";
 
+  //const passwordLengthInput = document.querySelector(lengthPrompt);
+  const numbersInput = document.getElementById("numbers");
+  const lowercaseInput = document.getElementById("lowerCase");
+  const uppercaseInput = document.getElementById("upperCase");
+  const specalcharInput = document.getElementById("specialChar");
 
   // Main function - generate a password
   function generatePassword() {
