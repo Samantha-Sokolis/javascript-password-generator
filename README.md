@@ -38,5 +38,3 @@ THEN a password is generated that matches the selected criteria.
 WHEN the password is generated,
 THEN the password is either displayed in an alert or written to the page.
 
-## https://github.com/jessicablank/password-generator
-I was able to find a similar project on Git Hub and was able to study the JS to understand if i was on the right track - I also liked the se of tick boxes for the criteria so I used materialize for this, and the tried to keep alerts for the number set.
