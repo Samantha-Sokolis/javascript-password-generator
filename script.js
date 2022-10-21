@@ -1,60 +1,76 @@
   // First prompt- alert- on opening browser
   alert("Confirm password requirements by clicking the GENERATE PASSWORD button below");
 
-  // Assignment Code
-  var generateBtn = document.querySelector("#generate");
-  var passwordText = document.querySelector("#password");
-
-  // Write password to the #password input
-  function writePassword() {
-    const password = generatePassword();
-    passwordText.value = password;
-  }
-
-  //Array specifcations for each of the character requirements
-  var passwordLength = {from: 8, to: 120};
-  var numbers = "0123456789";
-  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var specialChar = "`~!@#$%^&*()_-+={[}]|\:;'<,>.?/";
-
-  //const passwordLengthInput = document.querySelector(lengthPrompt);
-  var numbersInput = document.getElementById("numbers");
-  var lowercaseInput = document.getElementById("lowerCase");
-  var uppercaseInput = document.getElementById("upperCase");
-  var specalcharInput = document.getElementById("specialChar");
-
-  // Main function - generate a password
-  function generatePassword() {
-    // random password output regardless of user input
-    //var randomPassword = "";
-    // a new array will be created with the below selections
-    var finalPassword ="";
-
-      // Asks for user input
-      var enter = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"));
-
-      //password length input here, password length variable assigned above
-      //for (let i = 0; i < Number(passwordLength); i++){
-      //}
-
-      // First if statement for user validation 
-      if (!enter) {
-          alert("This needs a value");
-      } else if (enter < 8 || enter > 128) {
-          // Validates user input
-          // Start user input prompts
-          enter = parseInt(prompt("You must choose between 8 and 128"));
-        } else {
-          // Continues once user input is validated
-         var numbers = confirm("Will this contain numbers?");
-         var specialChar = confirm("Will this contain special characters?");
-         var upperCase = confirm("Will this contain Uppercase letters?");
-         var lowerCase = confirm("Will this contain Lowercase letters?");
-      }
+    //Array specifcations for each of the character requirements - password length default is set
+    var passwordLength = 8;
+    var choiceArr = [];
   
-    return finalPassword;
-  }
+    var numbers = ["0","1","2","3","4","5","6","7","8","9"];
+    var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    var specialChar = ["`","~","!","@","#","$","%","&","*","+","=","?"];
+
+ // Assignment Code
+ var generateBtn = document.querySelector("#generate");
 
   // Add event listener to generate button 
   generateBtn.addEventListener("click", writePassword);  
+
+  // Write password to the #password input
+  function writePassword() {
+      var correctPrompts = getPrompts(); //returns true or false 
+      var passwordText = document.querySelector("#password");
+
+  // If statement to generate password if user clicks okay on all prompts
+      if(correctPrompts) {
+        var newPassword = generatePassword();
+        passwordText.value = newPassword;
+      }
+  }
+   
+  // Main function - to Return password based on length and random selection of character
+  function generatePassword() {
+    var password = "";
+    for (var i = 0; i < passwordLength; i++) {
+      var randomLetter = Math.floor(Math.random() * choiceArr.length)
+      password = password + choiceArr[randomLetter];
+    }
+    return password;
+  }
+  
+   // getPrompts contains all user input prompts needed to generate password
+  function getPrompts() {
+  //choiceArr to reset array after every password generate
+        choiceArr = [];
+
+        passwordLength = parseInt(prompt("Enter your password length. Must be between 8 and 128 characters"));
+
+        if(isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+          alert("Character length has to be between 8 - 128. Please try again.");
+          return false;
+        }
+
+        if (confirm("Will this contain Lowercase letters?")) {
+          choiceArr = choiceArr.concat(lowerCase);
+        }
+
+        if (confirm("Will this contain Uppercase letters?")) {
+          choiceArr = choiceArr.concat(upperCase);
+        }
+
+        if (confirm("Will this contain special characters?")) {
+          choiceArr = choiceArr.concat(specialChar);
+        }
+
+        if (confirm("Will this contain Lowercase letters?")) {
+          choiceArr = choiceArr.concat(lowerCase);
+        }
+
+        if (confirm("Will this contain numbers?")) {
+          choiceArr = choiceArr.concat(numbers);
+        }
+        return true;
+      };
+      
+  
+
